@@ -1,0 +1,68 @@
+{% extends 'Health/base.html'%}
+{% load static %}
+{% block title %} Appointment {% endblock title %}
+{% block body %}
+ <!-- MAKE AN APPOINTMENT -->
+<form method="post" action="/appointment">
+     {% csrf_token %}
+     <section id="appointment" data-stellar-background-ratio="3">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                         <img src="{% static 'website/images/appointment-image.jpg' %}" class="img-responsive" alt="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                         <!-- CONTACT FORM HERE -->
+                         <form id="appointment-form" role="form" method="post" action="#">
+
+                              <!-- SECTION TITLE -->
+                              <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
+
+                                   <h2>Make an appointment</h2>
+                                             {% for message in messages %}
+                                       <h3 class="alert alert-success"> {{ messages }} </h3>
+                                             {% endfor %}
+
+                              </div>
+
+                              <table border="3" width="70%">
+                                   <tr>
+                                        <td>Name:</td>
+                                        <td>{{ form.pname }}</td>
+                                   </tr>
+                                                                      <tr>
+                                        <td>Email:</td>
+                                        <td>{{ form.pemail }}</td>
+                                   </tr>
+                                                                      <tr>
+                                        <td>Select Date:</td>
+                                        <td>{{ form.pdate }}</td>
+                                   </tr>
+                                                                      <tr>
+                                        <td>Select Department:</td>
+                                        <td>{{ form.pdept }}</td>
+                                   </tr>
+                                                                      <tr>
+                                        <td>Mobile Number:</td>
+                                        <td>{{ form.pcontact }}</td>
+                                   </tr>
+                                                                      <tr>
+                                        <td>Additional Message:</td>
+                                        <td>{{ form.pmsg }}</td>
+                                   </tr>
+                                   <tr>
+                                        <td colspan="2">  <button type="submit"  class="form-control" id="cf-submit" name="submit">Make an Appointment</button></td>
+                                   </tr>
+
+                              </table>
+
+                        </form>
+                    </div>
+
+               </div>
+          </div>
+     </section>
+     </form>
+{% endblock body%}
