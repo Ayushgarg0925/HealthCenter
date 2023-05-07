@@ -13,9 +13,9 @@
                          <img src="{% static 'website/images/appointment-image.jpg' %}" class="img-responsive" alt="">
                     </div>
 
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-6 col-sm-6" style="background-color:rgb(245, 244, 239); border-radius: 40px;display: flex;flex-direction: column;align-items: center;padding:50px;">
                          <!-- CONTACT FORM HERE -->
-                         <form id="appointment-form" role="form" method="post" action="#">
+                         <form id="appointment-form" role="form" method="post" action="#" >
 
                               <!-- SECTION TITLE -->
                               <div class="section-title wow fadeInUp" data-wow-delay="0.4s">
@@ -27,7 +27,7 @@
 
                               </div>
 
-                              <table border="3" width="70%">
+                              <table  width="80%">
                                    <tr>
                                         <td>Name:</td>
                                         <td>{{ form.pname }}</td>
