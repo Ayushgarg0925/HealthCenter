@@ -20,11 +20,12 @@ def contact(request):
     return render(request,'Health/contact.html')
 
 def appointment(request):
+
     if request.method=="POST":
         form=PatientForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse("<h2>Patient Save SuccessFully!</h2>")
+            return redirect("/appointment")
     else:
         form=PatientForm()
         return render(request, 'Health/appointment.html',{'form':form})
